@@ -1,0 +1,214 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: backoffice
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: backoffice
+    spec:
+      containers:
+        - name: backoffice
+          image: ghcr.io/gewis/aurora/backoffice:2.13.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: 80tcp
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /usr/src/app/data/posters
+              name: posters
+            - mountPath: /usr/src/app/data/local-posters
+              name: local-posters
+            - mountPath: /usr/src/app/data/audio
+              name: audio
+      volumes:
+        - name: posters
+          persistentVolumeClaim:
+            claimName: posters
+        - name: local-posters
+          persistentVolumeClaim:
+            claimName: local-posters
+        - name: audio
+          persistentVolumeClaim:
+            claimName: audio
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: client
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: client
+    spec:
+      containers:
+        - name: client
+          image: ghcr.io/gewis/aurora/client:2.13.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: 80tcp
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /usr/src/app/data/posters
+              name: posters
+            - mountPath: /usr/src/app/data/local-posters
+              name: local-posters
+            - mountPath: /usr/src/app/data/audio
+              name: audio
+      volumes:
+        - name: posters
+          persistentVolumeClaim:
+            claimName: posters
+        - name: local-posters
+          persistentVolumeClaim:
+            claimName: local-posters
+        - name: audio
+          persistentVolumeClaim:
+            claimName: audio
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: core
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: core
+    spec:
+      containers:
+        - name: core
+          image: ghcr.io/gewis/aurora/core:2.13.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: CORS_ORIGINS
+              value: https://aurora.gewis.nl, https://aurora-client.gewis.nl
+            - name: LDAP_BASE_DN
+              value: DC=gewiswg,DC=gewis,DC=nl
+            - name: LDAP_BIND_DN
+              value: '"CN=Aurora Bind User,OU=Bind users,OU=Special accounts,DC=gewiswg,DC=gewis,DC=nl"'
+            - name: LDAP_BOARD_FILTER
+              value: '"(&(objectcategory=user)(memberOf:1.2.840.113556.1.4.1941:=CN=Board - Current board,OU=Board,OU=Groups,DC=gewiswg,DC=gewis,DC=nl))"'
+            - name: LDAP_ENABLED
+              value: 'false'
+            - name: LDAP_ERO_FILTER
+              value: '"(&(objectCategory=user)(memberOf=CN=Permissions - BHV/ERO,OU=Organs,OU=Groups,DC=gewiswg,DC=gewis,DC=nl))"'
+            - name: LDAP_KEY_FILTER
+              value: '"(&(objectcategory=user)(memberOf=CN=PRIV - Openhouders \28huidige sleutelhouders\29,OU=Privileges,OU=Groups,DC=gewiswg,DC=gewis,DC=nl))"'
+            - name: LDAP_URI
+              value: ldap://ldaps.gewis.nl:389
+            - name: LIGHTS_TICK_INTERVAL
+              value: '40'
+            - name: LOG_LEVEL
+              value: debug
+            - name: OIDC_CLIENT_ID
+              value: aurora-prod
+            - name: OIDC_CONFIG
+              value: https://auth.gewis.nl/realms/GEWISWG/.well-known/openid-configuration/
+            - name: OIDC_PROVIDER
+              value: KEYCLOAK
+            - name: OIDC_REDIRECT_URI
+              value: https://aurora.gewis.nl/auth/callback
+            - name: PORT
+              value: '3000'
+            - name: ROLE_ADMIN
+              value: PRIV - Narrowcasting Prod Admin
+            - name: ROLE_AVICO
+              value: PRIV - Narrowcasting Prod AViCo
+            - name: ROLE_BAC
+              value: PRIV - Narrowcasting Prod BAC
+            - name: ROLE_BOARD
+              value: PRIV - Narrowcasting Prod Board
+            - name: ROLE_KEY_HOLDER
+              value: PRIV - Narrowcasting Prod Keyholder
+            - name: SPOTIFY_CLIENT_ID
+              value: 29582ac8fca040ac8ab4695f977ec369
+            - name: SPOTIFY_ENABLE
+              value: 'true'
+            - name: SPOTIFY_REDIRECT_URI
+              value: https://aurora.gewis.nl/api/spotify/callback
+            - name: STATIC_FILES_LOCATION
+              value: /app/public_copy
+            - name: SUDOSOS_URL
+              value: https://sudosos.gewis.nl/api/v1
+            - name: SUDOSOS_USER_ID
+              value: '18678'
+            - name: TRELLO_BASE_POSTER_LIST_NAME
+              value: BasePosters
+            - name: TRELLO_BOARD_ID
+              value: 2CgVhuNx
+            - name: TYPEORM_CONNECTION
+              value: mariadb
+            - name: TYPEORM_DATABASE
+              value: aurora_prod
+            - name: TYPEORM_HOST
+              value: mariadb01.db.gewis.nl
+            - name: TYPEORM_LOGGING
+              value: 'false'
+            - name: TYPEORM_PORT
+              value: '3306'
+            - name: TYPEORM_SSL_CACERTS
+              value: /etc/ssl/certs/ca-certificates.crt
+            - name: TYPEORM_SSL_ENABLED
+              value: 'true'
+            - name: TYPEORM_SYNCHRONIZE
+              value: 'false'
+            - name: TYPEORM_USERNAME
+              value: svc-aurora-prod
+            - name: TZ
+              value: Europe/Amsterdam
+          envFrom:
+            - secretRef:
+                name: aurora-secrets
+          ports:
+            - containerPort: 3000
+              name: 3000tcp
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /app/public/posters
+              name: posters
+            - mountPath: /app/public/local-posters
+              name: local-posters
+            - mountPath: /app/public_copy/audio
+              name: audio
+            - mountPath: /app/private
+              name: private
+      dnsConfig:
+        options:
+          - name: ndots
+            value: '1'
+      volumes:
+        - name: posters
+          persistentVolumeClaim:
+            claimName: posters
+        - name: local-posters
+          persistentVolumeClaim:
+            claimName: local-posters
+        - name: audio
+          persistentVolumeClaim:
+            claimName: audio
+        - name: private
+          persistentVolumeClaim:
+            claimName: private
