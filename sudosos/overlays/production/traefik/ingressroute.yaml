@@ -8,7 +8,7 @@ spec:
   tls: {}
   routes:
     # API — proxy to backend, strip /api prefix, apply CORS, body-size limit, compression, and 120s timeout
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/api/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/api`)"
       kind: Rule
       priority: 100
       middlewares:
@@ -21,7 +21,7 @@ spec:
           port: 80
 
     # WebSocket — proxy to backend WS port, strip /ws prefix (no compress — breaks WS)
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/ws/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/ws`)"
       kind: Rule
       priority: 100
       middlewares:
@@ -37,7 +37,7 @@ spec:
               sameSite: lax
 
     # Docs
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/docs/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/docs`)"
       kind: Rule
       priority: 100
       middlewares:
@@ -48,7 +48,7 @@ spec:
           port: 80
 
     # POS develop (explicit path)
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos-develop/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos-develop`)"
       kind: Rule
       priority: 100
       middlewares:
@@ -59,7 +59,7 @@ spec:
           port: 80
 
     # POS develop (beta cookie via /pos/)
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos/`) && HeaderRegexp(`Cookie`, `X-Beta-Enabled=true`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos`) && HeaderRegexp(`Cookie`, `X-Beta-Enabled=true`)"
       kind: Rule
       priority: 90
       middlewares:
@@ -70,7 +70,7 @@ spec:
           port: 80
 
     # POS stable
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos`)"
       kind: Rule
       priority: 80
       middlewares:
@@ -81,7 +81,7 @@ spec:
           port: 80
 
     # Static files
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/static/`)"
+    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/static`)"
       kind: Rule
       priority: 100
       services:
@@ -111,7 +111,7 @@ spec:
           port: 80
 
     # Frontend beta (beta cookie)
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/`) && HeaderRegexp(`Cookie`, `X-Beta-Enabled=true`)"
+    - match: "Host(`sudosos.gewis.nl`) && HeaderRegexp(`Cookie`, `X-Beta-Enabled=true`)"
       kind: Rule
       priority: 20
       middlewares:
@@ -121,7 +121,7 @@ spec:
           port: 80
 
     # Frontend stable (catch-all)
-    - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/`)"
+    - match: "Host(`sudosos.gewis.nl`)"
       kind: Rule
       priority: 10
       middlewares:
