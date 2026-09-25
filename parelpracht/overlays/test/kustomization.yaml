@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: parelpracht-test
+
+resources:
+- ../../base
+- backend-config.yaml
+- backend-sealed-secret.yaml
+
+patches:
+- target:
+    kind: Ingress
+    name: parelpracht
+  patch: |-
+    - op: replace
+      path: /spec/rules/0/host
+      value: parelpracht.test.gewis.nl
+
+images:
+- digest: sha256:80ccbdab8c17f680d63badccbe057c9060e78616ed037cb85ca43058adda1c18
+  name: abc.docker-registry.gewis.nl/crm/parelpracht/client
+- digest: sha256:25e0bd437fa408edbeeb11deb24a22b6a7d2c84df489cee34fb71e4ecfff5b18
+  name: abc.docker-registry.gewis.nl/crm/parelpracht/server
