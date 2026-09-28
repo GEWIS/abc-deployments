@@ -18,7 +18,7 @@ patches:
     name: parelpracht
 
 images:
-- digest: sha256:d6d209bd1ceb51e0eb34a0df0bde23e9d334598f84bc92827211991fd182c0ca
+- digest: sha256:2f864cc8412b02173822ee74758677a52785eeefea7bc2fe2cd1e98e134d1b31
   name: abc.docker-registry.gewis.nl/crm/parelpracht/client
-- digest: sha256:b0c2b4956c5455def4a41cb640cd4ed79e6cc15bc89e2ec49569b4a7fd71a2a4
+- digest: sha256:dc5d4fc5a48f5eef87b988ba89a514896679996b6152fd417bc197cc39dce1c1
   name: abc.docker-registry.gewis.nl/crm/parelpracht/server
