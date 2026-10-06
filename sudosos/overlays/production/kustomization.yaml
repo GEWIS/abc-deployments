@@ -13,11 +13,11 @@ patches:
 # Image tags for production — pinned to release versions
 images:
   - name: abc.docker-registry.gewis.nl/pos/sudosos/backend
-    newTag: "2.2.0"
+    newTag: "2.2.1"
   - name: abc.docker-registry.gewis.nl/pos/sudosos/dashboard
-    newTag: "2.2.0"
+    newTag: "2.2.1"
   - name: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale
-    newTag: "2.2.0"
+    newTag: "2.2.1"
   - name: abc.docker-registry.gewis.nl/pos/sudosos/docs
     newTag: develop
   - name: abc.docker-registry.gewis.nl/eou/pdf-generator
