@@ -212,3 +212,44 @@ spec:
         - name: private
           persistentVolumeClaim:
             claimName: private
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: info
+  template:
+    metadata:
+      labels:
+        io.kompose.service: info
+    spec:
+      containers:
+        - name: info
+          image: ghcr.io/gewis/aurora/info:1.0.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: CORE_URL
+              value: http://core:3000
+            - name: PORT
+              value: '8082'
+            - name: TRUST_PROXY
+              value: loopback,linklocal,uniquelocal,131.155.10.0/27,131.155.10.128/27
+          envFrom:
+            - secretRef:
+                name: aurora-info-secrets
+          ports:
+            - containerPort: 8082
+              name: 8082tcp
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8082
+      dnsConfig:
+        options:
+          - name: ndots
+            value: '1'
