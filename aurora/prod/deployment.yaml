@@ -229,17 +229,15 @@ spec:
     spec:
       containers:
         - name: info
-          image: ghcr.io/gewis/aurora/info:1.0.0
+          image: ghcr.io/gewis/aurora/info:1.0.1
           imagePullPolicy: IfNotPresent
           env:
             - name: CORE_URL
               value: http://core:3000
             - name: PORT
               value: '8082'
-            # Traefik and other in-cluster hops use private addresses; the right-most public
-            # X-Forwarded-For entry is the visitor (song titles are shown to 131.155.* only).
             - name: TRUST_PROXY
-              value: loopback,linklocal,uniquelocal
+              value: loopback,linklocal,uniquelocal,131.155.10.0/27,131.155.10.128/27
           envFrom:
             - secretRef:
                 name: aurora-info-secrets
@@ -247,7 +245,6 @@ spec:
             - containerPort: 8082
               name: 8082tcp
               protocol: TCP
-          # Not /api/status: that returns 502 while core is unreachable.
           readinessProbe:
             httpGet:
               path: /
