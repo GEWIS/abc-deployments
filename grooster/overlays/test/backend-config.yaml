@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  DEV_TYPE: "production"
+  GIN_MODE: "release"
+  RESOURCE_ENV_TYPE: "test"
+  HOST: "grooster.test.gewis.nl"
+  BASE_PATH: "/api/v1"
+  ALLOWED_ORIGINS: "https://grooster.test.gewis.nl"
+  CLIENT_ID: "grooster-test"
+  URI_CALLBACK: "https://grooster.test.gewis.nl/api/v1/auth/callback"
+  FRONTEND_CALLBACK: "https://grooster.test.gewis.nl/callback?token=%s"
+  DATABASE_TYPE: "mysql"
