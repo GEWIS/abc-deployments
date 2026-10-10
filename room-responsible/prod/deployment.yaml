@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: room-responsible-prod
+  labels:
+    app: room-responsible
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: room-responsible
+  template:
+    metadata:
+      labels:
+        app: room-responsible
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/gewis/room-responsible-ng:latest
+          imagePullPolicy: Always
+          ports:
+            - name: entrypoint
+              containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              memory: 2Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false

@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: room-responsible-auth
+  namespace: room-responsible-prod
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`rr.gewis.nl`)
+      middlewares:
+        - name: room-responsible-auth
+      services:
+        - name: app
+          port: 80
