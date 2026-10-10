@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pos
+spec:
+  template:
+    spec:
+      containers:
+        - name: pos
+          image: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale:2.2.1

@@ -69,6 +69,16 @@ spec:
         - name: pos-develop
           port: 80
 
+    # Redirect /pos → /pos/ (must outrank the priority-90 beta-cookie route)
+    - match: "Host(`sudosos.gewis.nl`) && Path(`/pos`)"
+      kind: Rule
+      priority: 95
+      middlewares:
+        - name: redirect-pos-trailing-slash
+      services:
+        - name: pos
+          port: 80
+
     # POS stable
     - match: "Host(`sudosos.gewis.nl`) && PathPrefix(`/pos`)"
       kind: Rule

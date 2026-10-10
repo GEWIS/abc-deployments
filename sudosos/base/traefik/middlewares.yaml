@@ -32,6 +32,17 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
+  name: redirect-pos-trailing-slash
+spec:
+  redirectRegex:
+    regex: "^(https?://[^/]+/pos)(\\?.*)?$"
+    replacement: "${1}/${2}"
+    permanent: true
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
   name: strip-pos-develop-prefix
 spec:
   stripPrefix:

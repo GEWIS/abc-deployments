@@ -9,16 +9,15 @@ resources:
 
 patches:
   - path: patches/backend-config.yaml
+  - path: patches/frontend-image.yaml
+  - path: patches/pos-image.yaml
 
-# Image tags for production — pinned to release versions
+# Image tags for shared images — applies to all deployments using them
 images:
   - name: abc.docker-registry.gewis.nl/pos/sudosos/backend
-    newTag: "2.2.1"
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/dashboard
-    newTag: "2.2.1"
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale
     newTag: "2.2.1"
   - name: abc.docker-registry.gewis.nl/pos/sudosos/docs
     newTag: develop
   - name: abc.docker-registry.gewis.nl/eou/pdf-generator
     newTag: "1.5.1"
+
