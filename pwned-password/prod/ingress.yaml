@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pwned-password-prod
+  namespace: pwned-passwords-prod
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: pwned-passwords.gewis.nl
+      http:
+        paths:
+          - backend:
+              service:
+                name: api
+                port:
+                  number: 8000
+            path: /
+            pathType: Prefix

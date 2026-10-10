@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: pwned-passwords-prod
+  labels:
+    io.kompose.service: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: api
+  template:
+    metadata:
+      labels:
+        io.kompose.service: api
+    spec:
+      containers:
+        - name: api
+          image: abc.docker-registry.gewis.nl/web/pwned-passwords/api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+              name: 8000tcp
+              protocol: TCP
