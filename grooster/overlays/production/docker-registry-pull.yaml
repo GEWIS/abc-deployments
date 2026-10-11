@@ -1,0 +1,18 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  name: docker-registry-pull
+  namespace: grooster-prod
+spec:
+  encryptedData:
+    .dockerconfigjson: AgA/TuO3cG3IqrkI3x6wEYt2H7J0FjsX7pFC6XHXExvGbYB0ano9OtUmLmsvSNSK7DfB+3ruA1NJdk7nF7ffb+Y2GAH/Ag+hnBPt2CB+GZsgzQ7i1Nin+DcivA+Mem7Q3+At2JHEaUBBqsMatL1uoiBGGL9ML+n+jk+llXu59iK2/J1dhhogmgz6JFOGzvy6DR+XNtRkxxFwv8TXi9y+VvbE52h1I2TEbHelj8L7yIr5KEqXg6kzHmSKatkjzEgRBiFPwSdTxxK50LfI+pK3+jWReEwq0+x8FMAGrlQjvNP/tbc7XcX27UqJoAeoSL50jKzNLp/yBl3xmJzQVSCsxLTq9S/5cEhmV0vWJEJffVHZquO4fiUQV7XrF0mX2ioaWlTZrIoqw/QgeMcIZNvzgd4MJJHaBBjcNPSTfrg3UxZqB/QHLsbjldJ8RasTEupbuiTnxDr0erLnc+sFEzNxfuXpIz5y2v172pvKNpkuaqKtTQ6ysXnz8PKKmUcO7plulMjKIaPZIeXzKCFaEbSLbGVvFDly6A/tv51BFwz7a+OHNFXmAV0648pvLJT1dFB6/cMr3lx7NRFy2tPHPkSz3bdPzhv/+BUm3BJAKAickjVAHVw7maM7bettHcelFVYUPyUQkd+t3NoC6xVvKwftoygtYSc5chMb38leULYqU29F1ZDZXCSoXpjVw2d25ozhaYqTb6XXmpwM6/kOZEeNBQDsGZj/ShdgXdEvruld3EyMMsuatXrIfjTv+LYvFvJmBPLFCONQ/q0TfF1yuW62IAxFlLi4YWuaSE97kFf9omWG+RrjOJDzop4UHhEh5NuVb5kHZEsk7TFWrEURKBgRMrGivOtJVMIYdtQaz/YLmUXgUsP7MChz6pbGBMp1Udx0wVWxcQDQkF7A4C1+h25PJ/PmpTgwf2JW9q95i0llxvMzoJNAzHvsHxhVRTQ/nf1OLO36FZaKRnuArnjMlj4vyIMNEJsozVGVeclOYEiK4ujV+LuMadmqKCCGFOMEhNi2yR0TFrhV34GE2ZnFaWek8De2zDItAgBRuImwRK+sdqW7PHDcixaeZMxL
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      name: docker-registry-pull
+      namespace: grooster-prod
+    type: kubernetes.io/dockerconfigjson

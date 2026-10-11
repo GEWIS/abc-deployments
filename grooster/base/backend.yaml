@@ -15,6 +15,8 @@ spec:
       labels:
         app: backend
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: backend
           image: abc.docker-registry.gewis.nl/eou/grooster-backend:1.21.1
