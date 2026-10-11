@@ -6,3 +6,4 @@ resources:
   - api.yaml
   - services.yaml
   - ingress.yaml
+  - docker-registry-pull.yaml

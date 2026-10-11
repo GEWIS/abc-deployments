@@ -1,0 +1,18 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  name: docker-registry-pull
+  namespace: pwned-passwords-prod
+spec:
+  encryptedData:
+    .dockerconfigjson: AgALR6iJDTYuK/yoqMINmQoj4bydue9uUXUlf1bzqPcNjn7Yt2uOOiIO6wA5oqQTsL3XpUGECjJq/yQc5QKrao1xwfot1ZxM/UIGwV0Z6PLRUTpHmaas3GlYAfrM4R5CU2HMh/RDmga+rtqWl7V7+ahx3A7RhpNQG/Zt+UnYQ8leu1SEOWfUDmcmSK/6gvczm4Sjt0BmI9GOSC18WdPM66xrV5eBs1YLAkXpQD8UGVMyfWfz73B7DJVpz1aR9hKulGWfBYNbO5tXpRAx6gcJSnTYhXbHm4YJayto/U23itDgK3ANyKPqxYyDqjzlvD9nF91HtQhFk5JOOgTLTvYs2J627Q6Z3A/2FXKfcKeOUCmg6GaFbjxB7fp+BZgKszsQ6K0cwXfMl8eQVz8Mm8mMGVz3H6ueDBowbWS0t7Xhoes5EB1ZPMfl9M+ucSGeC8e2uyDxhw85HKK7JfhrLkCsGKV14OPEl4NoQnc0oyVpDpX0ARC1Vo09xcrwnwtfG7hiqDT35h81M/Us5iLvzCXxj3ji6R4FZF4mwyKZD8pBjEU+GgSuxdvsDbujxo1tvE9hYOdtIP2ABYOU+oLa+HTWWBXWCZFpEbTN04CTd7J88LXQA4wlQx2ECPzaUMZYbMgMnuYzshWchtE9e0IKrGO2A5NhcCl2U3ovu0EvM7TJXmzktp5Svd89qrvetfREL/erzdWGLRhCk/gLUnDpWMWlNhkct9EACLS+7lqSamGbI3jm4+08TRnlPxiPua8yKTAKaiX+DZnQvlUm9bzBBIAqShvoRiFLG9B05WJUCT9mHNqeVKLWPiuAngs/ej2A8/ofqL73VbVxgNTa9OWno0RsTA7/pdIsYXu+AlMXeoU2LWJU0ZN27YcBGkguqpVjdYVQs7EoOyX9ByW8eXaWtnAaOVflMN/pwkM7HsPPTAlDahxaQdYHGOfyZKRThUT6yipOEu74G8/WNmyQTerFebXacKWcgu2buISi4DvNJ27d7QqkrJ7CQ0g+8Z0am6HBvkHcVm2aiC5Zbrap8dnpieSdk8v4tC3JJYTtQQnh6nxBL0SaKEIb6DJ0W/xJ
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      name: docker-registry-pull
+      namespace: pwned-passwords-prod
+    type: kubernetes.io/dockerconfigjson
