@@ -4,7 +4,7 @@ metadata:
   name: audio
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
@@ -16,7 +16,7 @@ metadata:
   name: local-posters
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 100Mi
@@ -28,7 +28,7 @@ metadata:
   name: posters
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 2Gi
