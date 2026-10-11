@@ -1,0 +1,18 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  name: docker-registry-pull
+  namespace: parelpracht-prod
+spec:
+  encryptedData:
+    .dockerconfigjson: AgCAH350Livu5Vty2o17FCmFT47XfFcgBt9rHSWJ2L7j5XLDu5SOWOYWkvBGi3dlxvY1IHiz/Gda/h4M4tXVTbqpxiGcvRwKFl99XP73t0qCkjBrR4rLSGin5drc+B1s1Tt+Xu4nRuhZEX9DW6nQpj716TEltb52upXMngE9n5dH9EoTnDbUIA6APSH8AV4AfusAXUOkZmdxKdMDtkNXodUJNZJ3p73/OM/FAnsmhzG5C1Nc3P9eemWOvU6B/0bls5rbMy7q/HiBBWvHj51GeqlW+IVyxl7V4bWwa/2ogocGQ46/D3ve3XpPpLgw4U6e6JpVne2DdZHr6P+0RXz8LCWkL/WpGIifyvzuj9inB6562GPzkT+0msyfeFHyMmFKtyQ4OUshsKDd2sPa5lzYOTZkSP0jUr6/FLwPecx7Ph8sHdaMUmTfh+bjeU5u9Bf5Cowwn8naZ5U/AaJOLRyo1nb9xqY27XKwJ/nNeYze1Is1Azv/T5Qxg5X3pubLhCrVI9BAO+0VNv1vAzlOnVHh4/1ftsREwV3FDQ9ZvM8+E70ZG0f1vY+KAwcPmBC7+026vpswsC0qAv0UfSGzzeY6EWZTUfgBY1I+z//Qf3hbcUDtQbd4Qk9jqfqZ5p7xo/u/waa3eUNKcsO1KIlARE6vn+3UlwfJf016iU2Hc2YmRlTyZHG5X97MEZu7alRnJpatJen8g0a/K/dGXQ0Bd13SNVOsLzCGpsK2xvHQTH9cXew0GM+kMxbIpVHVXMk/gUQIfDGacPywS10IqJlFdVOICOq45aVSXSATcKVaNtD7HwoMRaixYKp9qSrn1874bo94q5G982NI+7xJ8lpBDw96WhC2VjFyxJTUizKtxzCAIX9lp8HgiLHjpC1gg50zVjgO0YL99SvcTUqTIs1Qwe878l1dJsNXo2zLuRUJ53ikqkh9k+dloeX2JINRo5sWE/6r5h9eMpTWeEZa5MOeIYjF1bz8LrzIOEvif5u0k71rS1TZfu0aMvaQAWo2x1rwL1wRaNLnvDibycZFWiZl35GqAMNrbZMINiKAZMqvpVBAvmtTyd56j7bIEsvz
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      name: docker-registry-pull
+      namespace: parelpracht-prod
+    type: kubernetes.io/dockerconfigjson

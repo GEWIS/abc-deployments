@@ -17,6 +17,8 @@ spec:
       labels:
         io.kompose.service: backend
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: backend
           image: abc.docker-registry.gewis.nl/crm/parelpracht/server:1.5.0

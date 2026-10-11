@@ -17,6 +17,8 @@ spec:
       labels:
         io.kompose.service: frontend
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: frontend
           image: abc.docker-registry.gewis.nl/crm/parelpracht/client:1.5.0
