@@ -5,6 +5,7 @@ resources:
   - ../../base
   - sealed-backend-env.yaml
   - sealed-backend-jwt.yaml
+  - sealed-docker-registry-pull.yaml
   - traefik/ingressroute.yaml
 
 patches:

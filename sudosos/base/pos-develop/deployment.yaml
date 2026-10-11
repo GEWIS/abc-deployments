@@ -14,6 +14,8 @@ spec:
       labels:
         app: pos-develop
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: pos-develop
           image: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale:develop

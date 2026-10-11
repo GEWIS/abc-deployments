@@ -1,0 +1,18 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  name: docker-registry-pull
+  namespace: sudosos-test
+spec:
+  encryptedData:
+    .dockerconfigjson: AgB8oHBDFC3dicwJLRWH+1TOmOoGKN8gDd6/A8zw/vVdN1Jz00wjpjzu0reejVKbCq0Mfh5iH1Fkn5zLkQp2y5U7QdjTSPPO2+76Je0I9E79Giv5E7kCvTw4S4WMXMvOgYw3iG47fvhk0RJPlY6Otz8drBbMGvlknEE08rvAY7oIr6DuQb5ZQ59elU+GnrDN2yh1SXi40loe8TJRC3wvIyhEhRuajxQ+fUG5RNYPDt2hLYcVdwEwchtB6uUewjsprPspqad0NLYo2SGhw2UrwHoBCGLQPLfUbdYCVSUPuMOWSAFw33OpaldhzSo4TvgcKdvRf2Tu/EBb4Aq/oH8LBdmPqkeJF1fxMrq1hsl+SE5mrvL4o5bmPJHpZeLIue0jUmJgGqYfYnHES/mkJ42opTAoB1niIFPUZG/cUaBjlO4AjdHjPWqL+LdGH8rvyZ4XcBSB8+eGNNSNEeVpX7fUCpYTqiNboGxHZYwp+A52opfjCvIiQzbB20CKQWKp8HZbl2XDV7PG/lTsS1Ufw7ScO8td7ynaRCa3lg59wX/Z/4jZO1yOR7d9XExsrvP/486pSl57Kt+hnrEKo1InTcKGIT2nmi6o6/VWh6gw7g5fIJlSHOfc6B5gCmbJu3lris9IX53d7MzXSgEBfQt33CUWWaKUfeK0USFb+PqT7b5dhwUfxXk89ZwYYBY0Y/qC3AYoetSZ6dFR56h+NSWQFHtnx0bRq+lBc54Ka/d6EIxtOZm07cGSS5o7pT0TMSBd1s3uUVOJMf5hkEr5fjeL+gJROL9e3CxL2CHRci0DrE08NBe+uiETfh8y+Q8jk4dsjUPhpBBSBctLTV7Vm5GAc0qoEr+CLjorMW8Y5XIKumaI7psy5KXhPDJj/Qcuo/rzetwvvLBBZHvglCqwmyA=
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      name: docker-registry-pull
+      namespace: sudosos-test
+    type: kubernetes.io/dockerconfigjson

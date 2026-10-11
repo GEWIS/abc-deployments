@@ -14,6 +14,8 @@ spec:
       labels:
         app: pos
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: pos
           image: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale:latest

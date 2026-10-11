@@ -14,6 +14,8 @@ spec:
       labels:
         app: pdf
     spec:
+      imagePullSecrets:
+        - name: docker-registry-pull
       containers:
         - name: pdf
           image: abc.docker-registry.gewis.nl/eou/pdf-generator:1.5.1

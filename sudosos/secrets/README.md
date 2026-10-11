@@ -8,6 +8,7 @@ This directory contains templates and sealed secrets for each environment.
 |--------|---------|
 | `backend-env` | Database, LDAP, Stripe, SMTP, and other app credentials |
 | `backend-jwt` | RSA private key for JWT signing (mounted at `/app/config/jwt.key`) |
+| `docker-registry-pull` | Image pull credentials for `abc.docker-registry.gewis.nl` |
 
 ## Workflow
 
@@ -68,6 +69,34 @@ rm backend-jwt.production.yaml
 
 When migrating from the config PVC, use the **existing** key from the PVC instead
 of generating a new one, so active JWTs remain valid.
+
+## Pull secret
+
+Name: `docker-registry-pull` in each sudosos namespace.
+
+1. Copy the template for the environment and fill in real values:
+   ```bash
+   cp docker-registry-pull.production.template.yaml docker-registry-pull.production.yaml
+   # Edit with real registry credentials
+   # (same flow with .test. for the test namespace)
+   ```
+
+2. Seal it:
+   ```bash
+   kubeseal --cert ../cert.pem \
+     --format yaml \
+     --scope namespace-wide \
+     < docker-registry-pull.production.yaml \
+     > ../../overlays/production/sealed-docker-registry-pull.yaml
+
+   rm docker-registry-pull.production.yaml
+   ```
+
+3. The base manifests already reference it via
+   `imagePullSecrets: docker-registry-pull` in every pod template that pulls
+   from `abc.docker-registry.gewis.nl` (backend, backend-cron, docs, frontend,
+   frontend-beta, pos, pos-develop, pdf, pdf-compiler); the sealed secret is
+   committed in `overlays/<env>/sealed-docker-registry-pull.yaml`.
 
 ## Rotating secrets
 
