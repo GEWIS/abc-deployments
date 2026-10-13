@@ -19,7 +19,8 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: frontend
-          image: abc.docker-registry.gewis.nl/eou/grooster-frontend:1.23.0
+	  # Do not change image here but in overlays/production/kustomization.yml
+          image: abc.docker-registry.gewis.nl/eou/grooster-frontend:latest
           ports:
             - containerPort: 8080
               protocol: TCP

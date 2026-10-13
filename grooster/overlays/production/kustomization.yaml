@@ -13,4 +13,4 @@ images:
   - name: abc.docker-registry.gewis.nl/eou/grooster-backend
     newTag: "1.21.1"
   - name: abc.docker-registry.gewis.nl/eou/grooster-frontend
-    newTag: "1.22.1"
+    newTag: "1.23.0"
