@@ -19,7 +19,8 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: backend
-          image: abc.docker-registry.gewis.nl/eou/grooster-backend:1.21.1
+	  # Do not change image here but in overlays/production/kustomization.yml
+          image: abc.docker-registry.gewis.nl/eou/grooster-backend:latest
           ports:
             - containerPort: 8080
               protocol: TCP
