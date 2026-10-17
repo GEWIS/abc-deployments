@@ -31,5 +31,5 @@ data:
   TYPEORM_SYNCHRONIZE: "true"
   TYPEORM_LOGGING: "false"
   TYPEORM_ENTITIES: "dist/entity/**/*.js"
-  TYPEORM_MIGRATIONS: "dist/migration/**/*.js"
-  TYPEORM_SUBSCRIBERS: "dist/subscriber/**/*.js"
+  TYPEORM_MIGRATIONS: "dist/src/migration/**/*.js"
+  TYPEORM_SUBSCRIBERS: "dist/src/subscriber/**/*.js"
