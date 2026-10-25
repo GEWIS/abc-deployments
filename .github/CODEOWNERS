@@ -1,0 +1,28 @@
+# This file establishes what (sub)team owns each deployment
+# It is important that the teams or users mentioned here are explicitly added to the repository.
+# If they are added through inheritance, automatic review requests will typically not be triggered.
+
+# @GEWIS/teaml-leads should own the whole repo and view any new projects to make sure appropriate CODEOWNERS are set on new projects
+* @GEWIS/team-leads
+/.github/ @GEWIS/team-leads
+/README.md
+
+# ABC CRM Team
+/parelpracht/ @GEWIS/crm-administration
+/parelpracht/test/ @GEWIS/crm @GEWIS/crm-administration
+
+# ABC Website, Database, Radix team
+/radix/ @GEWIS/gewis-website-administration @GEWIS/database-administration @GEWIS/radix-administration
+/radix/test/ @GEWIS/gewis-website @GEWIS/database @GEWIS/radix
+
+# ABC Narrowcasting
+/aurora/ @GEWIS/narrowcasting-administration
+/aurora/test/ @GEWIS/narrowcasting
+
+# ABC Ease of use
+/pwned-password/ @GEWIS/ease-of-use-administration 
+/pwned-password/test/ @GEWIS/ease-of-use-software 
+
+# ABC POS
+/sudosos/ @GEWIS/pos-admin
+/sudosos/test/ @GEWIS/pos @GEWIS/pos-helpers
