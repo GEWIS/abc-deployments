@@ -9,20 +9,22 @@
 
 # ABC CRM Team
 /parelpracht/ @GEWIS/crm-administration
-/parelpracht/test/ @GEWIS/crm @GEWIS/crm-administration
+/parelpracht/overlays/test/ @GEWIS/crm @GEWIS/crm-administration
 
 # ABC Website, Database, Radix team
 /radix/ @GEWIS/gewis-website-administration @GEWIS/database-administration
-/radix/test/ @GEWIS/gewis-website @GEWIS/database
+/radix/overlays/test/ @GEWIS/gewis-website @GEWIS/database
 
 # ABC Narrowcasting
 /aurora/ @GEWIS/narrowcasting-administration
 /aurora/test/ @GEWIS/narrowcasting
 
 # ABC Ease of use
+/grooster/ @GEWIS/ease-of-use-administration 
+/grooster/overlays/test/ @GEWIS/ease-of-use-software 
 /pwned-password/ @GEWIS/ease-of-use-administration 
 /pwned-password/test/ @GEWIS/ease-of-use-software 
 
 # ABC POS
 /sudosos/ @GEWIS/pos-admin
-/sudosos/test/ @GEWIS/pos
+/sudosos/overlays/test/ @GEWIS/pos
