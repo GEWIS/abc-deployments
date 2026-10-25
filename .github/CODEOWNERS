@@ -12,8 +12,8 @@
 /parelpracht/test/ @GEWIS/crm @GEWIS/crm-administration
 
 # ABC Website, Database, Radix team
-/radix/ @GEWIS/gewis-website-administration @GEWIS/database-administration @GEWIS/radix-administration
-/radix/test/ @GEWIS/gewis-website @GEWIS/database @GEWIS/radix
+/radix/ @GEWIS/gewis-website-administration @GEWIS/database-administration
+/radix/test/ @GEWIS/gewis-website @GEWIS/database
 
 # ABC Narrowcasting
 /aurora/ @GEWIS/narrowcasting-administration
@@ -25,4 +25,4 @@
 
 # ABC POS
 /sudosos/ @GEWIS/pos-admin
-/sudosos/test/ @GEWIS/pos @GEWIS/pos-helpers
+/sudosos/test/ @GEWIS/pos
