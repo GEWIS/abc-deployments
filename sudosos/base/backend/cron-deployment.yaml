@@ -18,7 +18,7 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: backend-cron
-          image: abc.docker-registry.gewis.nl/pos/sudosos/backend:latest
+          image: ghcr.io/gewis/sudosos/backend:latest
           imagePullPolicy: Always
           command: ["/app/init_scripts/start-cron.sh"]
           livenessProbe:

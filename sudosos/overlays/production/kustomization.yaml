@@ -15,9 +15,9 @@ patches:
 
 # Image tags for shared images — applies to all deployments using them
 images:
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/backend
-    newTag: "2.2.1"
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/docs
+  - name: ghcr.io/gewis/sudosos/backend
+    newTag: "2.3.0"
+  - name: ghcr.io/gewis/sudosos/docs
     newTag: develop
   - name: abc.docker-registry.gewis.nl/eou/pdf-generator
     newTag: "1.5.1"

@@ -13,13 +13,13 @@ patches:
 
 # Test uses develop tags for everything
 images:
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/backend
+  - name: ghcr.io/gewis/sudosos/backend
     newTag: develop
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/dashboard
+  - name: ghcr.io/gewis/sudosos/dashboard
     newTag: develop
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale
+  - name: ghcr.io/gewis/sudosos/point-of-sale
     newTag: develop
-  - name: abc.docker-registry.gewis.nl/pos/sudosos/docs
+  - name: ghcr.io/gewis/sudosos/docs
     newTag: develop
   - name: abc.docker-registry.gewis.nl/eou/pdf-generator
     newTag: "1.5.1"
