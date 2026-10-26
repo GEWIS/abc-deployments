@@ -10,7 +10,7 @@ resources:
   - docker-registry-pull.yaml
 
 images:
-  - name: abc.docker-registry.gewis.nl/eou/grooster-backend
+  - name: ghcr.io/gewis/grooster-backend/backend
     newTag: "2.1.2"
-  - name: abc.docker-registry.gewis.nl/eou/grooster-frontend
+  - name: ghcr.io/gewis/grooster-frontend/frontend
     newTag: "2.1.2"
