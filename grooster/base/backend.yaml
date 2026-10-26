@@ -19,7 +19,7 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: backend
-          image: abc.docker-registry.gewis.nl/eou/grooster-backend:latest
+          image: ghcr.io/gewis/grooster-backend:latest
           ports:
             - containerPort: 8080
               protocol: TCP
