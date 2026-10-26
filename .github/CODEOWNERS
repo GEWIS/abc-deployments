@@ -2,7 +2,7 @@
 # It is important that the teams or users mentioned here are explicitly added to the repository.
 # If they are added through inheritance, automatic review requests will typically not be triggered.
 
-# @GEWIS/teaml-leads should own the whole repo and view any new projects to make sure appropriate CODEOWNERS are set on new projects
+# @GEWIS/team-leads should own the whole repo and view any new projects to make sure appropriate CODEOWNERS are set on new projects
 * @GEWIS/team-leads
 /.github/ @GEWIS/team-leads
 /README.md
