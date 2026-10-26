@@ -18,7 +18,7 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: docs
-          image: abc.docker-registry.gewis.nl/pos/sudosos/docs:develop
+          image: ghcr.io/gewis/sudosos/docs:develop
           imagePullPolicy: Always
           ports:
             - containerPort: 80

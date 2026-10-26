@@ -18,7 +18,7 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: frontend
-          image: abc.docker-registry.gewis.nl/pos/sudosos/dashboard:latest
+          image: ghcr.io/gewis/sudosos/dashboard:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

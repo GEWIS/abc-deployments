@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: pos
-          image: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale:2.2.1
+          image: ghcr.io/gewis/sudosos/point-of-sale:2.3.0

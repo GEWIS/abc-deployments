@@ -18,7 +18,7 @@ spec:
         - name: docker-registry-pull
       containers:
         - name: pos
-          image: abc.docker-registry.gewis.nl/pos/sudosos/point-of-sale:latest
+          image: ghcr.io/gewis/sudosos/point-of-sale:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

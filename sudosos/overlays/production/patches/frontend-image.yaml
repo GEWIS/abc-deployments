@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: abc.docker-registry.gewis.nl/pos/sudosos/dashboard:2.2.1
+          image: ghcr.io/gewis/sudosos/dashboard:2.3.0
