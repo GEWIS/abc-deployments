@@ -11,6 +11,6 @@ resources:
 
 images:
   - name: ghcr.io/gewis/grooster-backend/backend
-    newTag: "2.1.4"
+    newTag: "2.2.0"
   - name: ghcr.io/gewis/grooster-frontend/frontend
-    newTag: "2.1.4"
+    newTag: "2.2.0"
