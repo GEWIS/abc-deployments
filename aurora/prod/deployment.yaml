@@ -22,6 +22,10 @@ spec:
             - containerPort: 80
               name: 80tcp
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
           volumeMounts:
             - mountPath: /usr/src/app/data/posters
               name: posters
@@ -29,6 +33,7 @@ spec:
               name: local-posters
             - mountPath: /usr/src/app/data/audio
               name: audio
+      restartPolicy: Always
       volumes:
         - name: posters
           persistentVolumeClaim:
@@ -64,6 +69,10 @@ spec:
             - containerPort: 80
               name: 80tcp
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
           volumeMounts:
             - mountPath: /usr/src/app/data/posters
               name: posters
@@ -71,6 +80,7 @@ spec:
               name: local-posters
             - mountPath: /usr/src/app/data/audio
               name: audio
+      restartPolicy: Always
       volumes:
         - name: posters
           persistentVolumeClaim:
@@ -186,6 +196,19 @@ spec:
             - containerPort: 3000
               name: 3000tcp
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/auth/groups
+              port: 3000
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /api/auth/groups
+              port: 3000
+            timeoutSeconds: 5
           volumeMounts:
             - mountPath: /app/public/posters
               name: posters
@@ -195,6 +218,7 @@ spec:
               name: audio
             - mountPath: /app/private
               name: private
+      restartPolicy: Always
       dnsConfig:
         options:
           - name: ndots
@@ -245,10 +269,15 @@ spec:
             - containerPort: 8082
               name: 8082tcp
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8082
           readinessProbe:
             httpGet:
               path: /
               port: 8082
+      restartPolicy: Always
       dnsConfig:
         options:
           - name: ndots
